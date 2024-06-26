@@ -17,7 +17,7 @@ export function SideBar() {
   const [isCampaignsOpen, setIsCampaignsOpen] = useState(true);
 
   return (
-    <div className={`${isCollapsed ? "w-20" : "w-[330px]"} bg-white flex h-[990px] flex-col justify-between rounded-lg shadow-md transition-width duration-300`}>
+    <div className={`${isCollapsed ? "w-20" : "w-[330px]"} bg-white flex h-full flex-col justify-between rounded-lg shadow-md transition-width duration-300`}>
       <div>
         <div className="p-4 bg-white border-b border-dashed border-gray-300 flex justify-between items-center">
           {!isCollapsed && (

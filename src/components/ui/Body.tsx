@@ -44,36 +44,35 @@ const cardData = [
 
 export function Body() {
   return (
-    <div className="flex flex-col flex-1 h-[100px]">
+    <div className="flex flex-col flex-1 h-full overflow-auto">
       <main className="flex flex-1 flex-col gap-2 p-4 md:gap-4 md:p-4">
         <h1 className="text-4xl font-bold mb-2" style={{ fontSize: '48px' }}>Dashboard</h1>
         <div className="grid gap-4 md:grid-cols-2 md:gap-6 lg:grid-cols-4">
-            {cardData.map((card, index) => (
-                <Card key={index} className="border rounded-lg shadow-md h-64">
-                <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                    <CardTitle className="text-xl font-medium" style={{ fontSize: '20px' }}>
-                    {card.title}
-                    </CardTitle>
-                    <div className="p-1 rounded-full bg-gray-100">
-                    <card.icon className="h-5 w-5 text-gray-500" />
-                    </div>
-                </CardHeader>
-                <CardContent>
-        <div className="flex items-center space-x-2">
-            <div className="text-3xl font-bold" style={{ fontSize: '34px' }}>
-            {card.count}
-            </div>
-            <div className={`ml-auto px-2 py-1 text-xs font-semibold ${card.percentageBg} ${card.percentageText} rounded-full`}>
-            {card.percentage}
-            </div>
-        </div>
-        <div className="text-xs text-gray-500 mt-1">
-            {card.updateInfo}
-        </div>
-        </CardContent>
-
-                </Card>
-            ))}
+          {cardData.map((card, index) => (
+            <Card key={index} className="border rounded-lg shadow-md h-64">
+              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                <CardTitle className="text-xl font-medium" style={{ fontSize: '20px' }}>
+                  {card.title}
+                </CardTitle>
+                <div className="p-1 rounded-full bg-gray-100">
+                  <card.icon className="h-5 w-5 text-gray-500" />
+                </div>
+              </CardHeader>
+              <CardContent>
+                <div className="flex items-center space-x-2">
+                  <div className="text-3xl font-bold" style={{ fontSize: '34px' }}>
+                    {card.count}
+                  </div>
+                  <div className={`ml-auto px-2 py-1 text-xs font-semibold ${card.percentageBg} ${card.percentageText} rounded-full`}>
+                    {card.percentage}
+                  </div>
+                </div>
+                <div className="text-xs text-gray-500 mt-1">
+                  {card.updateInfo}
+                </div>
+              </CardContent>
+            </Card>
+          ))}
         </div>
 
         <div className="grid gap-4 md:gap-6 lg:grid-cols-2 xl:grid-cols-3">
