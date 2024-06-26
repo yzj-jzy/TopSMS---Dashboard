@@ -1,7 +1,6 @@
 import { Avatar, AvatarFallback } from "@radix-ui/react-avatar";
 import { Users, Send, Activity, Link } from "lucide-react";
 import StatsChart from "./StatsChart";
-import { Button } from "./button";
 import { Card, CardHeader, CardTitle, CardContent } from "./card";
 
 

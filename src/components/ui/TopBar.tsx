@@ -1,5 +1,5 @@
 import React from 'react';
-import { Bell, AlertCircle, PlusCircle, User } from 'lucide-react';
+import {AlertCircle, PlusCircle } from 'lucide-react';
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";

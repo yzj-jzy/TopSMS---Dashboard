@@ -7,12 +7,9 @@ import {
   Home,
   LineChart,
   Package,
-  ShoppingCart,
   Users,
 } from "lucide-react";
 
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 
 export function SideBar() {
   const [isCampaignsOpen, setIsCampaignsOpen] = useState(true);
