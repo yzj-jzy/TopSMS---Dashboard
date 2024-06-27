@@ -41,9 +41,9 @@ export function TopBar() {
           <span>|</span>
           <span>Ahsan Pratama</span>
           {showDropdown && (
-            <div className="absolute right-0 mt-2 w-56 bg-white border border-gray-300 rounded-lg z-10 shadow-lg">
+            <div className="mt-40 absolute right-0 mt-2 w-56 bg-white border border-gray-300 rounded-lg z-10 shadow-lg">
               <div className="flex flex-col p-2">
-                <div className="flex items-center p-2">
+                <div className=" flex items-center p-2">
                   <Avatar className="h-10 w-10">
                     <AvatarImage src="/path/to/user-image.jpg" alt="shadcn" />
                     <AvatarFallback>S</AvatarFallback>
@@ -53,6 +53,9 @@ export function TopBar() {
                     <p className="text-sm text-gray-500">m@example.com</p>
                   </div>
                 </div>
+                <div className="border-t border-b ">
+                  
+                  
                 <Link href="/account" className="flex items-center p-2 hover:bg-gray-100 rounded-md">
                   Account
                 </Link>
@@ -62,6 +65,9 @@ export function TopBar() {
                 <Link href="/notifications" className="flex items-center p-2 hover:bg-gray-100 rounded-md">
                   Notifications
                 </Link>
+                  
+                  
+                </div> 
                 <Link href="/logout" className="flex items-center p-2 hover:bg-gray-100 rounded-md">
                   Log out
                 </Link>
