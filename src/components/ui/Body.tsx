@@ -1,7 +1,8 @@
-import { Avatar, AvatarFallback } from "@radix-ui/react-avatar";
+import { Avatar, AvatarFallback, AvatarImage } from "@radix-ui/react-avatar";
 import { Users, Send, Activity } from "lucide-react";
 import StatsChart from "./StatsChart";
 import { Card, CardHeader, CardTitle, CardContent } from "./card";
+import defaultava from "../../assets/default.jpg";
 
 const cardData = [
   {
@@ -38,7 +39,7 @@ const cardData = [
     percentage: "↑ +2%",
     percentageBg: "bg-green-100",
     percentageText: "text-green-800",
-    icon: Activity,
+    icon: Send,
   },
 ];
 
@@ -63,11 +64,8 @@ export function Body() {
                   <div className="text-3xl font-bold" style={{ fontSize: '55px' }}>
                     {card.count}
                   </div>
-                  <div className="flex items-center px-2 py-1 text-xs rounded-full" style={{ backgroundColor: '#C4E6A7', fontSize: '20px' }}>
-                    <svg className="h-5 w-5 text-black mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                    </svg>
-                    <span className="text-black" style={{ fontSize: '20px' }}>{card.percentage}</span>
+                  <div className="flex items-center px-2 py-1 text-xs rounded-full" style={{ backgroundColor: '#B5EA8C', fontSize: '20px' }}>
+                    <span className="text-black p-4"  style={{ fontSize: '20px' }}>{card.percentage}</span>
                   </div>
                 </div>
                 <div className="text-xs text-gray-500 absolute bottom-2 mb-6" style={{ fontSize: "20px" }}>
@@ -79,14 +77,14 @@ export function Body() {
         </div>
 
         <div className="mt-4 flex gap-4 md:gap-6 lg:gap-8">
-          <Card className="w-1/2 round-2xl">
+          <Card className="w-1/2 rounded-2xl">
             <CardContent>
               <StatsChart />
             </CardContent>
           </Card>
-          <Card className="w-1/2">
+          <Card className="w-1/2 border border-gray-300">
             <CardHeader>
-              <CardTitle>Recent Subscribers</CardTitle>
+              <CardTitle className="p-4">Recent Subscribers</CardTitle>
             </CardHeader>
             <CardContent className="grid gap-8">
               {[
@@ -99,8 +97,9 @@ export function Body() {
                 { name: "Nora", email: "your.email@address.com", time: "Yesterday" },
                 { name: "Sammuel", email: "your.email@address.com", time: "Yesterday" },
               ].map((subscriber, index) => (
-                <div key={index} className="flex items-center gap-4 round-2xl">
+                <div key={index} className="pl-6 pr-6 flex items-center gap-4 rounded-2xl border-gray-300">
                   <Avatar className="hidden h-9 w-9 sm:flex">
+                    <AvatarImage src={defaultava.src} alt="Ahsan Pratama" />
                     <AvatarFallback>{subscriber.name[0]}</AvatarFallback>
                   </Avatar>
                   <div className="grid gap-1">

@@ -34,7 +34,7 @@ export function StatsChart() {
 
   const handleSelect = (filter: React.SetStateAction<string>) => {
     setSelectedFilter(filter);
-    // 在这里可以添加更改图表数据的逻辑
+    // add data preprocess logic
   };
 
   const data = {
@@ -69,15 +69,15 @@ export function StatsChart() {
 
   const options = {
     responsive: true,
-    barPercentage: 0.5, // 减小柱子宽度
-    maintainAspectRatio: false, // 允许自定义高度
+    barPercentage: 0.5, // bar width
+    maintainAspectRatio: false, 
     plugins: {
       legend: {
         position: "bottom" as const,
         labels: {
           usePointStyle: true,
           font: {
-            weight: "bold", // 设置图例标签字体为粗体
+            weight: "bold", // set to bold
             color: "black",
           },
         },
