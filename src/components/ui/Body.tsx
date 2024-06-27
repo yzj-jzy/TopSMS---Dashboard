@@ -98,15 +98,15 @@ export function Body() {
                 { name: "Sammuel", email: "your.email@address.com", time: "Yesterday" },
               ].map((subscriber, index) => (
                 <div key={index} className="pl-6 pr-6 flex items-center gap-4 rounded-2xl border-gray-300">
-                  <Avatar className="hidden h-9 w-9 sm:flex">
+                  <Avatar className="hidden h-12 w-12 sm:flex">
                     <AvatarImage src={defaultava.src} alt="Ahsan Pratama" />
                     <AvatarFallback>{subscriber.name[0]}</AvatarFallback>
                   </Avatar>
                   <div className="grid gap-1">
-                    <p className="text-sm font-medium leading-none">{subscriber.name}</p>
+                    <p className="text-sm font-medium leading-none font-bold">{subscriber.name}</p>
                     <p className="text-sm text-muted-foreground">{subscriber.email}</p>
-                  </div>
-                  <div className="ml-auto font-medium">{subscriber.time}</div>
+                  </div >
+                  <div className="ml-auto font-medium text-slate-400">{subscriber.time}</div>
                 </div>
               ))}
             </CardContent>
