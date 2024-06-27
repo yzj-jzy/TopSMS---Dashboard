@@ -1,13 +1,33 @@
 "use client";
 
-import React, { useState } from 'react';
-import { Bar } from 'react-chartjs-2';
-import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import React, { useState } from "react";
+import { Bar } from "react-chartjs-2";
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend,
+} from "chart.js";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
 import { ChevronDown } from "lucide-react";
 
-ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend
+);
 
 export function StatsChart() {
   const [selectedFilter, setSelectedFilter] = useState("This Month");
@@ -18,29 +38,29 @@ export function StatsChart() {
   };
 
   const data = {
-    labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+    labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
     datasets: [
       {
-        label: 'SMS',
+        label: "SMS",
         data: [680, 420, 660, 900, 967, 900, 900],
-        backgroundColor: '#d2e603',  // Light green (updated)
-        borderColor: '#d2e603',
+        backgroundColor: "#d2e603", // Light green (updated)
+        borderColor: "#d2e603",
         borderRadius: 10, // Rounded corners
         borderWidth: 1,
       },
       {
-        label: 'Subscribe',
+        label: "Subscribe",
         data: [1020, 880, 800, 1020, 1020, 1020, 1020],
-        backgroundColor: '#c2d500',  // Darker green (updated)
-        borderColor: '#c2d500',
+        backgroundColor: "#c2d500", // Darker green (updated)
+        borderColor: "#c2d500",
         borderRadius: 10, // Rounded corners
         borderWidth: 1,
       },
       {
-        label: 'Unsubscribe',
+        label: "Unsubscribe",
         data: [1050, 780, 875, 1050, 1050, 1050, 1050],
-        backgroundColor: '#b0c200',  // Another shade of green (updated)
-        borderColor: '#b0c200',
+        backgroundColor: "#b0c200", // Another shade of green (updated)
+        borderColor: "#b0c200",
         borderRadius: 10, // Rounded corners
         borderWidth: 1,
       },
@@ -49,30 +69,34 @@ export function StatsChart() {
 
   const options = {
     responsive: true,
+    barPercentage: 0.5, // 减小柱子宽度
+    maintainAspectRatio: false, // 允许自定义高度
     plugins: {
       legend: {
-        position: 'bottom' as const,
+        position: "bottom" as const,
         labels: {
           usePointStyle: true,
-        }
+          font: {
+            weight: "bold", // 设置图例标签字体为粗体
+            color: "black",
+          },
+        },
       },
       tooltip: {
         enabled: true,
-        mode: 'index' as const,
+        mode: "index" as const,
         intersect: false,
         callbacks: {
           // Custom tooltip callbacks if needed
-        }
-      }
+        },
+      },
     },
     scales: {
       x: {
         stacked: true,
-        barPercentage: 0.4, // Adjust bar width
-        categoryPercentage: 0.5, // Adjust distance between bars
         grid: {
           display: false, // Hide vertical grid lines
-        }
+        },
       },
       y: {
         stacked: true,
@@ -81,8 +105,7 @@ export function StatsChart() {
         ticks: {
           stepSize: 1000, // Adjust step size to show 1000, 2000, 3000, 4000, 5000
         },
-        
-      }
+      },
     },
   };
 
@@ -97,13 +120,21 @@ export function StatsChart() {
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent>
-            <DropdownMenuItem onClick={() => handleSelect("This Month")}>This Month</DropdownMenuItem>
-            <DropdownMenuItem onClick={() => handleSelect("This Week")}>This Week</DropdownMenuItem>
-            <DropdownMenuItem onClick={() => handleSelect("This Year")}>This Year</DropdownMenuItem>
+            <DropdownMenuItem onClick={() => handleSelect("This Month")}>
+              This Month
+            </DropdownMenuItem>
+            <DropdownMenuItem onClick={() => handleSelect("This Week")}>
+              This Week
+            </DropdownMenuItem>
+            <DropdownMenuItem onClick={() => handleSelect("This Year")}>
+              This Year
+            </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       </div>
-      <Bar data={data} options={options} />
+      <div className="h-[600px] relative">
+          <Bar data={data} options={options as any} />
+      </div>
     </div>
   );
 }
